@@ -10,8 +10,16 @@
         html {
           font-family: sans-serif;
           color: #333;
-         
+        
         }
+        .color-new {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          color: blue;
+        }
+        .hidden{
+            visibility: hidden
+        }
+        
     </style>
 </head>
 <body>
@@ -22,6 +30,10 @@
 <input type="button" value="Change h1" onclick="addNewStyle()" />
 <input type="text" value="Message to the user" onclick=" message ()" />
 <input type="button" value="Change background-color" onclick="backgroundColorChange()" />
+<input type="button" value="Change amazon link" onclick="addCss()" />
+<input type="button" value="hidden image" onclick="toggleImageClass()" />
+<input type="button" value="fake address" onclick="changimgAdress()" />
+
 <h1 id = "main h1">Buy here</h1>
 
 <table border="1">
@@ -35,7 +47,7 @@
     <tr>
         <td > Product 1</td>
         <td><a href="https://www.amazon.co.uk/Headset-Beexcellent-Reduction-Professional-Headphone/dp/B0792TLYP5/?_encoding=UTF8&smid=A3BU05JI6NC4X1&pd_rd_w=qYUHY&pf_rd_p=6f115945-95ba-4227-bc24-8d553a6ba7ec&pf_rd_r=QC83JW2RQY6SFBH5XVV2&pd_rd_r=cbd9d6b7-6e83-4725-9ebf-3b66f3b980d3&pd_rd_wg=N4UUq&ref_=pd_gw_unk" target="_blank">Gaming Headset for PS4 Xbox On></a></td>
-        <td><img src="product 1.jpg " width="200" height="141"></td>
+        <td><img src="product 1.jpg " width="200" height="141" class="hidden"></td>
         <td>£16.99</td>
         <td>Comfort Noise Reduction Crystal Clarity 3.5mm LED Professional Headphone with Mic for PC PS5 Laptop
          Tablet Mac Smart Phone</td>
@@ -72,8 +84,9 @@
 </table>
 <input type="text" />
 <footer>
-    <p>Dublin 1, Irleand</p>
-    <p>Buy Here</p>
+    <div>Dublin 1, Irleand
+         Buy Here
+   </div>
 </footer>
 
 <script  lang="text/javascript">
@@ -89,10 +102,35 @@ const message = function(){
 }
 
 const backgroundColorChange = function (){
-    let color = document.getElementsByTagName("body")[0]
-    color.style.backgroundColor = "black"
-    
+    let color = document.getElementsByTagName("body")[0];
+    let currentColor = color.style.backgroundColor;
 
+    color.style.backgroundColor = currentColor === "black" ? 'white' : 'black';
 }
 
+const changimgAdress = function (){
+ let div =   document.querySelector("footer > div:nth-child(1)")
+
+  div.innerText = "Sao Paulo, Brazil"
+}
+
+const addCss = function (){
+    let items = document.querySelectorAll("a")
+    for (let item of items ) {
+        item.classList.add("color-new");
+    }
+}
+const toggleImageClass = function (){
+    let items = document.querySelectorAll("img")
+    for (let image of items) {
+        image.classList.toggle("hidden")
+    }
+}
+const togglePriceColor = function (){
+    const colors = ['red', 'green', 'blue'];
+    let items = document.querySelectorAll("tr > td:nth-child(4)");
+    for (let price of items) {
+        price.style.color = colors[Math.floor(Math.random() * 3)]
+    }
+}
 </script>
