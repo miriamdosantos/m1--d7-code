@@ -10,6 +10,7 @@
         html {
           font-family: sans-serif;
           color: #333;
+         
         }
     </style>
 </head>
@@ -20,6 +21,7 @@
 
 <input type="button" value="Change h1" onclick="addNewStyle()" />
 <input type="text" value="Message to the user" onclick=" message ()" />
+<input type="button" value="Change background-color" onclick="backgroundColorChange()" />
 <h1 id = "main h1">Buy here</h1>
 
 <table border="1">
@@ -84,6 +86,13 @@ newStyleH1.style.color = "green"
 const message = function(){
     let name = prompt ("your name")
     alert("Hi " + name)
+}
+
+const backgroundColorChange = function (){
+    let color = document.getElementsByTagName("body")[0]
+    color.style.backgroundColor = "black"
+    
+
 }
 
 </script>
