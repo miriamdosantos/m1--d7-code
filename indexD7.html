@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +18,10 @@
 </body>
 </html>
 
-
-<h1 id ="main h1"  > />Buy here</h1>
 <input type="button" value="Change h1" onclick="addNewStyle()" />
-<input type="button" value="Welcome User, type your name" onclick="
+<input type="text" value="Message to the user" onclick=" message ()" />
+<h1 id = "main h1">Buy here</h1>
+
 <table border="1">
     <tr>
         <th>&nbsp;</th>
@@ -74,15 +75,14 @@
 
 <script  lang="text/javascript">
 
- function message User {
- var nome = prompt("Digite seu nome: ")
-prompt("Bem vindo, ", nome);
-}
- 
-
 const addNewStyle = function () {
 let newStyleH1 = document.getElementById("main h1")
 newStyleH1.style.color = "green" 
+}
+
+const message = function(){
+    let name = prompt ("your name")
+    alert("Hi " + name)
 }
 
 </script>
